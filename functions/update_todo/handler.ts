@@ -38,10 +38,10 @@ export const handler = async function (
       keys["#N"] = "name";
       values[":name"] = data.name.trim();
     }
-    if (data.completed != null && typeof data.completed == "boolean") {
+    if (data.completed != null) {
       updateQuery.push("#C = :completed");
       keys["#C"] = "completed";
-      values[":completed"] = data.completed;
+      values[":completed"] = data.completed == "true";
     }
 
     if (values.length > 1) {
